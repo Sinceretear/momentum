@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import logo from '../images/Momentum.png';
+import Clock from 'react-live-clock';
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
@@ -16,8 +16,9 @@ function classNames(...classes) {
 
 
 function Navbar() {
+
   return (
-    <Disclosure as="nav" className="border-b border-white/[.2]">
+    <Disclosure as="nav" className="bottom-border blur">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 ">
@@ -67,9 +68,13 @@ function Navbar() {
                   </div>
                 </div>
               </div>
-              
+              <div className="flex justify-right text-white">
+                <Clock format={'h:mm A'} ticking={true} timezone={'US/Pacific'} />
+              </div>
             </div>
           </div>
+
+          
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 ">
