@@ -1,13 +1,12 @@
 import React from 'react';
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import logo from '../images/Momentum.png';
+import logo from '../images/logo1.png';
 import Clock from 'react-live-clock';
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'ToDo', href: '#', current: false },
+  { name: 'Projects', href: '#', current: false }
 ]
 
 function classNames(...classes) {
@@ -18,7 +17,7 @@ function classNames(...classes) {
 function Navbar() {
 
   return (
-    <Disclosure as="nav" className="bottom-border blur">
+    <Disclosure as="nav" className="blur">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 ">
@@ -35,11 +34,6 @@ function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                    alt="Workflow"
-                  />
                   <img
                     //className="hidden lg:block h-8 w-auto"
                     className="img-responsive"
