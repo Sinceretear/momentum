@@ -35,8 +35,7 @@ const App = () => {
   return (
     <div className="min-h-screen" style={{ backgroundImage: `url(${result[0]})`, backgroundPosition: 'top', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', Position: 'relative'}}>
       <Navbar />
-      <MainContent/>
-      <p className="text-white">{result[1]}</p>
+      <MainContent location={result[1]}/>
     </div>
     
   );
