@@ -43,7 +43,7 @@ function Navbar() {
                     alt="logo"
                   />
                 </div>
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-center">
+              {/* <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-center">
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -61,7 +61,7 @@ function Navbar() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="flex justify-right text-white">
                 <Clock format={'h:mm A'} ticking={true} timezone={'US/Pacific'} />
               </div>

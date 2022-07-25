@@ -33,11 +33,12 @@ const App = () => {
 
 
   return (
-    <div className="min-h-screen" style={{ backgroundImage: `url(${result[0]})`, backgroundPosition: 'top', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', Position: 'relative'}}>
-      <Navbar />
-      <MainContent location={result[1]}/>
-    </div>
     
+    <div className="min-h-screen" style={{ backgroundImage: `url(${result[0]})`, backgroundPosition: 'top', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', Position: 'relative' }}>
+      <Navbar />
+      <MainContent location={result[1]} />
+    </div>
+
   );
 }
 
