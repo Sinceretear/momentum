@@ -23,9 +23,7 @@ const App = () => {
     axios.get(APIurl, config).then((response) => {
       console.log(response);
       const urlForBg = response.data.urls.full
-      
       const data = [response.data.urls.full, response.data.location.title]
-
       setResult(data);
     });
 
