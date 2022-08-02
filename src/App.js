@@ -3,29 +3,31 @@ import axios from 'axios';
 import './index.css';
 import Navbar from './components/Navbar';
 import MainContent from './components/MainContent';
+import getBg from './functions/LockFunctions';
 
 const App = () => {
-
   const [result, setResult] = useState([]);
-
+  
   useEffect(() => { 
 
-    const clientId = "srjIZhO3VeCkUr-iRL13t3hDEwTw13fpnq4RXTRAJiA"
-    const APIurl = 'https://api.unsplash.com/photos/random' + "?client_id=" + clientId;
-    
-    let config = {
-      params: {
-        orientation: 'squarish',
-        query: 'travel'
-      },
-    }
-
-    axios.get(APIurl, config).then((response) => {
-      console.log(response);
-      const urlForBg = response.data.urls.full
-      const data = [response.data.urls.full, response.data.location.title]
+    const isLocked = localStorage.getItem('locked') === 'true';
+    if (isLocked) {
+      // get from cache 
+      const url = localStorage.getItem('bg')
+      const title = JSON.parse(localStorage.getItem('imageName'));
+      const data = [url, title]
       setResult(data);
-    });
+    } else {
+      // get new image and set to cache
+      getBg().then((response) => {
+        const urlForBg = response.data.urls.full
+        const title = response.data.location.title
+        const data = [urlForBg, title]
+        localStorage.setItem("bg", JSON.stringify(urlForBg));
+        localStorage.setItem("imageName", JSON.stringify(title));
+        setResult(data);
+      });
+    }
 
   }, [])
 

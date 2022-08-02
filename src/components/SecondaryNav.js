@@ -3,16 +3,19 @@ import { CashIcon, LockOpenIcon, LockClosedIcon } from '@heroicons/react/outline
 import { Link } from "react-router-dom";
 
 const SecondaryNav = () => {
-  const [hidden, setHidden] = useState(false);
+
+  const isLocked = localStorage.getItem('locked') === 'true';
+  const [hidden, setHidden] = useState(isLocked);
 
   const hide = () => {
-    setHidden(!hidden)
     if (hidden) {
-      var lock = true;
-      localStorage.setItem("locked", JSON.stringify(lock));
-    } else {
       var lock = false;
-      localStorage.setItem("locked", JSON.stringify(lock));
+      localStorage.setItem("locked",lock);
+      setHidden(!hidden)
+    } else {
+      var lock = true;
+      localStorage.setItem("locked",lock);
+      setHidden(!hidden)
     }
   };
 
