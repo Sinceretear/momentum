@@ -6,8 +6,7 @@ async function getBgFromUnsplashApi() {
 
     let config = {
       params: {
-        orientation: 'squarish',
-        query: 'travel'
+        query: 'Travel'
       },
     }
       var BGisLocked = localStorage.getItem("locked");
